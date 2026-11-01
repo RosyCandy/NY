@@ -11,7 +11,7 @@ switch ($type) {
 
     case 'profile':
         echo json_encode(['code' => 0, 'data' => [
-            'name'         => 'DuoDuo',
+            'name'         => 'NY',
             'bio'          => '记录生活的点点滴滴',
             'avatar'       => 'https://duoduo.best/assets/images/avatar.jpg',
             'postCount'    => (int)get_post_count(),

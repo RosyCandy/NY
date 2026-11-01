@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head><?php blog_head("编辑文章 · DuoDuo's Daily"); ?>
+<head><?php blog_head("编辑文章 · NY"); ?>
 <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script></head>
 <body class="blog-app management-view" id="top">

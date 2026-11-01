@@ -53,7 +53,7 @@ $pdo->exec("CREATE TABLE IF NOT EXISTS users (
 
 $pdo->exec("CREATE TABLE IF NOT EXISTS site_profile (
     id TINYINT PRIMARY KEY,
-    display_name VARCHAR(100) NOT NULL DEFAULT 'DuoDuo',
+    display_name VARCHAR(100) NOT NULL DEFAULT 'NY',
     description VARCHAR(255) NOT NULL DEFAULT '记录生活的点点滴滴',
     avatar VARCHAR(500) NOT NULL DEFAULT '/assets/images/avatar.jpeg',
     qq VARCHAR(100) NOT NULL DEFAULT '204575829',

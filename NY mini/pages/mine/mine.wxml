@@ -2,7 +2,7 @@
 
 <!-- 未登录状态 -->
 <view wx:if="{{!isLoggedIn}}" class="not-login">
-  <text class="logo">DuoDuo</text>
+  <text class="logo">NY</text>
   <text class="sub">管理员专属</text>
   <button class="btn-login" bindtap="goLogin">登录</button>
 </view>

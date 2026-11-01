@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
-<!DOCTYPE html><html lang="zh-CN"><head><?php blog_head("注册账户 · DuoDuo's Daily"); ?>
+<!DOCTYPE html><html lang="zh-CN"><head><?php blog_head("注册账户 · NY"); ?>
 </head>
-<body class="blog-app auth-view" id="top"><?php blog_workspace_nav(); ?><main class="admin-layout" id="journal"><div class="admin-card account-card account-single"><h2>创建账户</h2><p class="account-intro">加入 DuoDuo's Daily，开始记录你的故事。</p><?php if (!empty($error)): ?><p class="form-error"><?= htmlspecialchars($error) ?></p><?php endif; ?><form method="POST" class="login-form"><div class="form-group"><label for="field-username">用户名</label><input id="field-username" name="username" autocomplete="username" required></div><div class="form-group"><label for="field-password">密码</label><input id="field-password" type="password" name="password" autocomplete="new-password" minlength="6" required></div><button class="btn login-submit">注册并登录</button><div class="account-links"><a href="account.php">已有账户，直接登录</a></div></form></div></main><?php blog_footer(); ?>
+<body class="blog-app auth-view" id="top"><?php blog_workspace_nav(); ?><main class="admin-layout" id="journal"><div class="admin-card account-card account-single"><h2>创建账户</h2><p class="account-intro">加入 NY，开始记录你的故事。</p><?php if (!empty($error)): ?><p class="form-error"><?= htmlspecialchars($error) ?></p><?php endif; ?><form method="POST" class="login-form"><div class="form-group"><label for="field-username">用户名</label><input id="field-username" name="username" autocomplete="username" required></div><div class="form-group"><label for="field-password">密码</label><input id="field-password" type="password" name="password" autocomplete="new-password" minlength="6" required></div><button class="btn login-submit">注册并登录</button><div class="account-links"><a href="account.php">已有账户，直接登录</a></div></form></div></main><?php blog_footer(); ?>
 </body></html>

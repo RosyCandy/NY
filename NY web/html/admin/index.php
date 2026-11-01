@@ -64,7 +64,7 @@ $profile = get_site_profile();
 ?>
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head><?php blog_head("管理后台 · DuoDuo's Daily"); ?>
+<head><?php blog_head("管理后台 · NY"); ?>
 </head>
 <body class="blog-app management-view" id="top">
 

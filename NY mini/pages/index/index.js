@@ -7,7 +7,7 @@ Page({
     menuOpen: false,
     profile: {
       avatar: 'https://duoduo.best/assets/images/avatar.jpg',
-      name: 'DuoDuo',
+      name: 'NY',
       bio: '记录生活的点点滴滴',
       postCount: 0,
       commentCount: 0

@@ -43,7 +43,7 @@ $logged_in = !empty($_SESSION['user']) || !empty($_SESSION['admin']);
 ?>
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head><?php blog_head("账户中心 · DuoDuo's Daily"); ?>
+<head><?php blog_head("账户中心 · NY"); ?>
 </head>
 <body class="blog-app auth-view" id="top">
 <?php blog_workspace_nav(); ?>

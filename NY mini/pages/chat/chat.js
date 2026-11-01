@@ -5,7 +5,7 @@ Page({
   data: {
     darkMode: true,
     messages: [
-      { role: 'assistant', content: '你好！我是 DuoDuo 的 AI 助手，有什么想聊的吗？✨' }
+      { role: 'assistant', content: '你好！我是 NY 的 AI 助手，有什么想聊的吗？✨' }
     ],
     inputText: '',
     loading: false,

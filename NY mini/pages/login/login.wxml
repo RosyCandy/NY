@@ -1,6 +1,6 @@
 <view class="login-page">
   <view class="logo-wrap">
-    <text class="logo-text">DuoDuo</text>
+    <text class="logo-text">NY</text>
     <text class="logo-sub">管理员登录</text>
   </view>
 

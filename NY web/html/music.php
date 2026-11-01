@@ -6,7 +6,7 @@ $music_list = get_music_list($search);
 $posts = get_posts(20, 0, 'music', $search);
 ?>
 <!DOCTYPE html>
-<html lang="zh-CN"><head><?php blog_head("音乐 · DuoDuo's Daily"); ?></head>
+<html lang="zh-CN"><head><?php blog_head("音乐 · NY"); ?></head>
 <body class="blog-app inner-page music-view" id="top">
 <?php blog_nav('music'); ?>
 <div class="page-intro"><span class="eyebrow">A SOUNDTRACK FOR EVERY DAY</span><h1>让日常，有一点旋律。</h1><p>听喜欢的歌，也把心情留在这里。</p></div>

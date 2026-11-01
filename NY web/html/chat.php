@@ -5,7 +5,7 @@ require_once 'includes/site.php';
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <?php blog_head("AI 对话 · DuoDuo's Daily"); ?>
+    <?php blog_head("AI 对话 · NY"); ?>
     <style>
         .chat-layout {
             position: relative; z-index: 10;
@@ -188,7 +188,7 @@ require_once 'includes/site.php';
 
 <script src="assets/js/main.js"></script>
 <script>
-    const systemMsg = { role: 'system', content: '你是DuoDuo博客的AI助手，友好、简洁地回答问题。' };
+    const systemMsg = { role: 'system', content: '你是NY博客的AI助手，友好、简洁地回答问题。' };
     const saved = localStorage.getItem('chat_messages');
     const messages = saved ? JSON.parse(saved) : [systemMsg];
 

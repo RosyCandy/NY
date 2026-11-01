@@ -34,7 +34,7 @@ function send_reset_email($to, $token) {
     $port = 465;
     $username = 'rosyhazes@zohomail.com';
     $password = 'RnLH7hkkRZZL';
-    $from_name = "DuoDuo's Daily";
+    $from_name = "NY";
 
     $subject = '重置密码验证码';
     $body = "您的验证码是：{$token}\n\n验证码15分钟内有效，请勿泄露给他人。";
@@ -68,7 +68,7 @@ function send_reset_email($to, $token) {
 ?>
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head><?php blog_head("忘记密码 · DuoDuo's Daily"); ?>
+<head><?php blog_head("忘记密码 · NY"); ?>
 </head>
 <body class="blog-app auth-view" id="top">
 

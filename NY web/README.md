@@ -1,4 +1,4 @@
-# DuoDuo’s Daily
+# NY
 
 个人博客源码，线上站点：https://duoduo.best/ 。
 

@@ -4,7 +4,7 @@ require_once 'includes/site.php';
 $profile = get_site_profile();
 ?>
 <!DOCTYPE html>
-<html lang="zh-CN"><head><?php blog_head("关于 · DuoDuo's Daily"); ?></head>
+<html lang="zh-CN"><head><?php blog_head("关于 · NY"); ?></head>
 <body class="blog-app inner-page" id="top">
 <?php blog_nav('about'); ?>
 <div class="page-intro"><span class="eyebrow">BEHIND THE JOURNAL</span><h1>你好，欢迎来到我的小角落。</h1><p>在文字和旋律之间，认识一下彼此。</p></div>

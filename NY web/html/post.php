@@ -32,7 +32,7 @@ $comments = get_comments($id);
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<?php blog_head($post['title'] . " · DuoDuo's Daily"); ?>
+<?php blog_head($post['title'] . " · NY"); ?>
 <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
 </head>
