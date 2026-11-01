@@ -40,7 +40,7 @@ function blog_workspace_nav() {
     $logged_in = !empty($_SESSION['admin']) || !empty($_SESSION['user']);
     $workspace = !empty($_SESSION['admin']) ? '/admin/index.php' : '/user/index.php'; ?>
     <header class="site-header"><div class="header-inner">
-        <a class="site-brand" href="/index.php"><?= blog_icon('leaf') ?><span>NY<span class="brand-dot">.</span></span></a>
+        <a class="site-brand" href="/index.php"><?= blog_icon('leaf') ?><span>NY</span></a>
         <div class="workspace-header-links"><a href="/index.php">返回博客</a><?php if ($logged_in): ?><a href="<?= $workspace ?>">工作台</a><a href="/account.php?logout=1">退出登录</a><?php else: ?><a href="/account.php">账户中心</a><?php endif; ?><button type="button" class="icon-button theme-toggle" aria-label="切换深色模式" title="切换配色"><?= blog_icon('moon') ?></button></div>
     </div></header>
 <?php }
@@ -65,7 +65,7 @@ function blog_nav($active = '') {
     <a class="skip-link" href="#journal">跳到正文</a>
     <header class="site-header">
         <div class="header-inner">
-            <a href="index.php" class="site-brand"><?= blog_icon('leaf') ?><span>NY<span class="brand-dot">.</span></span></a>
+            <a href="index.php" class="site-brand"><?= blog_icon('leaf') ?><span>NY</span></a>
             <nav class="site-navigation" id="site-navigation" aria-label="主导航">
                 <?php foreach ($links as $key => [$url, $label]): ?><a href="<?= $url ?>"<?= $active === $key ? ' aria-current="page"' : '' ?>><?= $label ?></a><?php endforeach; ?>
                 <a class="mobile-account" href="account.php">我的账户</a>
@@ -150,7 +150,7 @@ function blog_city_modal() { ?>
 <?php }
 
 function blog_footer($weather = false) { ?>
-    <footer class="site-footer"><a class="footer-brand" href="/index.php">NY<span>.</span></a><p>记录生活的点点滴滴 · 用心收藏每一天</p><small>© <?= date('Y') ?> NY</small><a class="back-to-top" href="#top" aria-label="返回顶部">↑</a></footer>
+    <footer class="site-footer"><a class="footer-brand" href="/index.php">NY</a><p>记录生活的点点滴滴 · 用心收藏每一天</p><small>© <?= date('Y') ?> NY</small><a class="back-to-top" href="#top" aria-label="返回顶部">↑</a></footer>
     <script src="/assets/js/main.js?v=20261022-2"></script>
     <?php if ($weather): blog_city_modal(); ?><script src="https://cdn.jsdelivr.net/npm/pinyin-pro@3.26.0/dist/index.js"></script><script src="assets/js/weather.js?v=20261021-4"></script><?php endif; ?>
 <?php }

@@ -36,7 +36,7 @@ function blog_page_url($page) {
 <section class="home-hero" aria-label="首页封面">
     <img class="hero-image" src="assets/images/hero-grass.jpg" alt="少女们躺在开满小花的绿色草地上" width="2731" height="1701" fetchpriority="high">
     <div class="hero-shade"></div>
-    <div class="hero-copy"><span class="hero-kicker">LIFE, NOTES & MELODIES</span><h1>NY<span>.</span></h1><p>记录生活的点点滴滴</p><span class="hero-caption">生活的浪漫，藏在每一个平凡的日子里。</span></div>
+    <div class="hero-copy"><span class="hero-kicker">LIFE, NOTES & MELODIES</span><h1>NY</h1><p>记录生活的点点滴滴</p><span class="hero-caption">生活的浪漫，藏在每一个平凡的日子里。</span></div>
     <a class="hero-scroll" href="#journal"><span>往下翻，是最近的日常</span><span class="scroll-line"></span></a>
     <svg class="hero-wave wave-back" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 45C280 135 420 0 730 65s470 40 710-20v75H0Z"/></svg>
     <svg class="hero-wave" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0 42C250 2 410 100 710 65S1180 8 1440 45v55H0Z"/></svg>
