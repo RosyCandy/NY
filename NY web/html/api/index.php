@@ -107,13 +107,13 @@ switch ($type) {
                 'id'       => $m['id'],
                 'name'     => $m['name'],
                 'artist'   => $m['artist'] ?? '',
-                'file_url' => 'https://duoduo.best/' . $encoded
+                'file_url' => music_cdn_base() . '/' . $encoded
             ];
             // flac/ogg 在部分机型不支持，优先给小程序转码后的 m4a
             if (preg_match('#^assets/music/(.+)\.(flac|ogg)$#i', $m['file_path'], $mm)) {
                 $m4aFile = __DIR__ . '/../assets/music_m4a/' . $mm[1] . '.m4a';
                 if (file_exists($m4aFile)) {
-                    $data['file_url_m4a'] = 'https://duoduo.best/assets/music_m4a/' . rawurlencode($mm[1]) . '.m4a';
+                    $data['file_url_m4a'] = music_cdn_base() . '/assets/music_m4a/' . rawurlencode($mm[1]) . '.m4a';
                 }
             }
             return $data;

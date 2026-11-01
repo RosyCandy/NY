@@ -82,7 +82,7 @@ switch ($action) {
         check_token($pdo);
         $list = $pdo->query("SELECT id, name, artist, file_path FROM music ORDER BY id DESC")->fetchAll();
         $list = array_map(function($m) {
-            $m['file_url'] = 'https://duoduo.best/' . $m['file_path'];
+            $m['file_url'] = music_cdn_base() . '/' . $m['file_path'];
             return $m;
         }, $list);
         echo json_encode(['code' => 200, 'data' => $list]);

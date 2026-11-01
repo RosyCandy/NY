@@ -146,3 +146,10 @@ function get_site_profile() {
     global $pdo;
     return $pdo->query('SELECT * FROM site_profile WHERE id=1')->fetch();
 }
+
+// 音频 CDN 前缀：设置了 AUDIO_CDN_BASE 时音乐 URL 改写到国内可达的对象存储/CDN，
+// 解决国内网络访问海外源站音频流失败的问题；未设置则维持源站地址，行为不变。
+function music_cdn_base() {
+    $base = rtrim((string)getenv('AUDIO_CDN_BASE'), '/');
+    return $base !== '' ? $base : 'https://duoduo.best';
+}

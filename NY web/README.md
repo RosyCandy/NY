@@ -38,6 +38,16 @@ docker compose up -d --no-build
 
 确认 MySQL 健康检查通过后访问站点；PHP 会创建缺失的数据表。按部署用户权限使用 `sudo chown -R 82:82 html/assets/images/posts html/assets/images/avatars html/assets/music`，让 Alpine PHP 的 www-data 能保存上传文件。既有站点应先备份，再恢复数据库与媒体文件。
 
+## 国内网络音乐播放修复
+
+服务器在海外（Google Cloud），国内网络对音频流这类大流量请求基本不可达，小程序里音乐会播放失败。修复方式是把音频分发切到国内可达的对象存储，源站地址保持不变：
+
+1. 开通腾讯云 COS（或类似国内对象存储），创建存储桶，把 `html/assets/music_m4a/` 整个目录按原结构上传。
+2. 在 `.env` 中设置 `AUDIO_CDN_BASE=https://<桶名>.cos.<地域>.myqcloud.com`，重启 php 容器。音乐 API 的 `file_url` / `file_url_m4a` 会自动改写为该前缀；不设置则维持源站地址，行为不变。
+3. 在小程序管理后台「开发管理 → 开发设置 → 服务器域名」把该桶域名加入 downloadFile 合法域名（HTTPS）。
+
+小程序音乐页已内置备用音源重试：m4a 加载失败会自动回退原始文件，全部失败才提示播放失败。
+
 ## 入库时的配置处理
 
 本次以 2026-10-25 从生产服务器下载的源码为准。为了让仓库不再写死凭据，`html/includes/db.php`、`html/api/chat.php` 改为读取环境变量，Compose 补充相应变量传递；同时取消默认的固定管理员密码。其余业务源码与生产快照保持一致。此次整理没有修改正在运行的服务器配置；以后部署此版本时必须先准备 `.env`，不要直接覆盖线上配置文件。

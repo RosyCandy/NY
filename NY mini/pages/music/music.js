@@ -43,6 +43,12 @@ Page({
     this.audio.onEnded(() => { this.nextSong() })
     this.audio.onError((e) => {
       console.error('播放错误', e.errCode, e.errMsg)
+      // 当前音源加载失败时自动切换备用音源（m4a ↔ 原始文件）重试，全部失败才提示
+      if (this._sources && this._sourceIdx < this._sources.length - 1) {
+        this._sourceIdx += 1
+        this.audio.src = this._sources[this._sourceIdx]
+        return
+      }
       wx.showToast({ title: `播放失败(${e.errCode})`, icon: 'none' })
     })
   },
@@ -62,7 +68,10 @@ Page({
   loadSong(index) {
     const song = this.data.musicList[index]
     if (!song) return
-    this.audio.src = song.file_url_m4a || song.file_url
+    // 备用音源列表：优先转码后的 m4a，失败自动回退原始文件
+    this._sources = [song.file_url_m4a, song.file_url].filter(Boolean)
+    this._sourceIdx = 0
+    this.audio.src = this._sources[0]
     this.setData({ currentIndex: index, isPlaying: false, currentTime: '0:00', duration: '0:00', progress: 0 })
   },
 

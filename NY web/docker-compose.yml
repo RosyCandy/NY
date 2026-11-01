@@ -1,6 +1,7 @@
 services:
 
   nginx:
+    container_name: Nginx
     image: nginx:1.28-alpine
     restart: unless-stopped
     ports:
@@ -25,6 +26,7 @@ services:
         max-file: "3"
 
   php:
+    container_name: PHP
     image: duoduo-php:latest
     build: ./php
     environment:
@@ -35,6 +37,7 @@ services:
       DASHSCOPE_API_KEY: ${DASHSCOPE_API_KEY:-}
       BLOG_ADMIN_USERNAME: ${BLOG_ADMIN_USERNAME:-}
       BLOG_ADMIN_PASSWORD: ${BLOG_ADMIN_PASSWORD:-}
+      AUDIO_CDN_BASE: ${AUDIO_CDN_BASE:-}
     restart: unless-stopped
     volumes:
       - ./html:/var/www/html
@@ -54,6 +57,7 @@ services:
         max-file: "3"
 
   mysql:
+    container_name: MySQL
     image: mysql:8.0.46
     restart: always
     environment:
