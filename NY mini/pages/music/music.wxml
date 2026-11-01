@@ -1,0 +1,52 @@
+<view class="container {{darkMode ? 'dark' : 'light'}}">
+
+<!-- 当前播放 -->
+<view class="player">
+  <view class="disc-wrap">
+    <view class="disc {{isPlaying ? 'spinning' : ''}}">
+      <image class="disc-img" src="https://duoduo.best/assets/images/avatar.jpeg" mode="aspectFill"/>
+    </view>
+  </view>
+
+  <view class="song-info" wx:if="{{musicList.length > 0}}">
+    <text class="song-name">{{musicList[currentIndex].name}}</text>
+    <text class="song-artist">{{musicList[currentIndex].artist || '未知歌手'}}</text>
+  </view>
+  <view class="song-info" wx:else>
+    <text class="song-name">暂无音乐</text>
+  </view>
+
+  <!-- 进度条 -->
+  <view class="progress-wrap">
+  <text class="time">{{currentTime}}</text>
+  <view class="progress-bar">
+    <view class="progress-fill" style="width:{{progress + '%'}}"></view>
+  </view>
+  <text class="time">{{duration}}</text>
+</view>
+
+  <!-- 控制按钮 -->
+  <view class="controls">
+    <view class="ctrl-btn" bindtap="prevSong">⏮</view>
+    <view class="ctrl-btn play-btn" bindtap="togglePlay">
+      {{isPlaying ? '⏸' : '▶'}}
+    </view>
+    <view class="ctrl-btn" bindtap="nextSong">⏭</view>
+  </view>
+</view>
+
+<!-- 播放列表 -->
+<view class="playlist">
+  <text class="playlist-title">🎧 播放列表</text>
+  <view class="playlist-item {{currentIndex === index ? 'active' : ''}}"
+        wx:for="{{musicList}}" wx:key="id"
+        bindtap="selectSong" data-index="{{index}}">
+    <view class="playlist-info">
+      <text class="playlist-name">{{item.name}}</text>
+      <text class="playlist-artist">{{item.artist || '未知歌手'}}</text>
+    </view>
+    <text class="playing-icon" wx:if="{{currentIndex === index && isPlaying}}">♫</text>
+  </view>
+</view>
+
+</view>

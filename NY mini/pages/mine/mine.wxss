@@ -1,0 +1,168 @@
+page { background: #0d0d1a; color: #fff; }
+
+.container { padding: 0 0 120rpx; }
+
+/* 未登录 */
+.not-login {
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  height: 80vh; gap: 16rpx;
+}
+.logo { font-size: 72rpx; font-weight: bold; color: #7c6bff; }
+.sub { font-size: 28rpx; color: #888; margin-bottom: 40rpx; }
+.btn-login {
+  background: #7c6bff; color: #fff;
+  border-radius: 50rpx; width: 300rpx;
+  font-size: 32rpx; border: none;
+}
+
+/* 顶部 header */
+.header {
+  display: flex; align-items: center;
+  padding: 60rpx 32rpx 32rpx;
+  gap: 24rpx;
+}
+.avatar-wrap { width: 96rpx; height: 96rpx; border-radius: 50%; overflow: hidden; }
+.avatar { width: 100%; height: 100%; }
+.user-info { flex: 1; display: flex; flex-direction: column; gap: 8rpx; }
+.username { font-size: 36rpx; font-weight: bold; }
+.role { font-size: 24rpx; color: #7c6bff; }
+.btn-logout {
+  background: transparent; color: #888;
+  border: 1rpx solid #333; border-radius: 30rpx;
+  font-size: 24rpx; padding: 8rpx 28rpx;
+}
+
+/* Tabs */
+.tabs {
+  display: flex; margin: 0 0 32rpx;
+  background: #1a1a2e; border-radius: 20rpx;
+  padding: 8rpx; gap: 8rpx;
+}
+.tab {
+  flex: 1; text-align: center;
+  padding: 20rpx; border-radius: 16rpx;
+  font-size: 28rpx; color: #888;
+  transition: all .2s;
+}
+.tab.active { background: #7c6bff; color: #fff; }
+
+/* Card */
+.card {
+  margin: 0 0 32rpx;
+  background: #1a1a2e;
+  border-radius: 24rpx;
+  padding: 32rpx;
+}
+.card-title {
+  display: block; font-size: 30rpx;
+  font-weight: bold; margin-bottom: 28rpx;
+}
+
+/* 表单 */
+.input {
+  background: #0d0d1a; color: #fff;
+  border: 1rpx solid #2a2a40;
+  border-radius: 12rpx; padding: 24rpx;
+  font-size: 30rpx; width: 100%;
+  box-sizing: border-box; margin-bottom: 20rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+}
+.picker { margin-bottom: 20rpx; }
+.picker-view {
+  background: #0d0d1a; color: #ccc;
+  border: 1rpx solid #2a2a40;
+  border-radius: 12rpx; padding: 20rpx 24rpx;
+  font-size: 28rpx;
+}
+.textarea {
+  background: #0d0d1a; color: #fff;
+  border: 1rpx solid #2a2a40;
+  border-radius: 12rpx; padding: 24rpx;
+  font-size: 30rpx; width: 100%;
+  box-sizing: border-box; min-height: 300rpx;
+  margin-bottom: 20rpx;
+}
+.btn-primary {
+  background: #7c6bff; color: #fff;
+  border-radius: 50rpx; width: 100%;
+  font-size: 30rpx; border: none;
+  padding: 20rpx 0;
+}
+
+/* 列表 */
+.empty { color: #555; font-size: 28rpx; text-align: center; padding: 40rpx 0; }
+.list-item {
+  display: flex; align-items: center;
+  padding: 24rpx 0;
+  border-bottom: 1rpx solid #2a2a40;
+}
+.list-item:last-child { border-bottom: none; }
+.item-info { flex: 1; display: flex; flex-direction: column; gap: 8rpx; }
+.item-title { font-size: 28rpx; color: #eee; }
+.item-meta { font-size: 22rpx; color: #666; }
+.btn-delete {
+  background: #3d1a1a; color: #ff6b6b;
+  border: 1rpx solid #ff6b6b33;
+  border-radius: 20rpx; font-size: 24rpx;
+  padding: 10rpx 28rpx; flex-shrink: 0;
+}
+
+.btn-group {
+  display: flex;
+  gap: 12rpx;
+  flex-shrink: 0;
+}
+
+.btn-edit {
+  background: #1a2a3d;
+  color: #6bb5ff;
+  border: 1rpx solid #6bb5ff33;
+  border-radius: 20rpx;
+  font-size: 24rpx;
+  padding: 10rpx 28rpx;
+}
+
+.form-btns {
+  display: flex;
+  gap: 16rpx;
+}
+
+.btn-cancel {
+  flex: 1;
+  background: #1a1a2e;
+  color: #888;
+  border: 1rpx solid #333;
+  border-radius: 50rpx;
+  font-size: 30rpx;
+  padding: 20rpx 0;
+}
+
+.btn-primary { flex: 2; }
+
+.container {
+  padding: 0 0 120rpx;
+  width: 100%;
+  box-sizing: border-box;
+  min-width: 100vw;
+}
+
+
+/* 浅色模式 */
+.light { background: #f0f0f5; color: #1a1a2e; }
+.light .sub { color: #888899; }
+.light .btn-logout { color: #555566; border-color: #dcdcea; }
+.light .tabs { background: #e8e8f0; }
+.light .tab { color: #555566; }
+.light .card { background: #ffffff; }
+.light .card-title { color: #1a1a2e; }
+.light .input { background: #f5f5fa; color: #1a1a2e; border-color: #dcdcea; }
+.light .picker-view { background: #f5f5fa; color: #555566; border-color: #dcdcea; }
+.light .textarea { background: #f5f5fa; color: #1a1a2e; border-color: #dcdcea; }
+.light .item-title { color: #1a1a2e; }
+.light .item-meta { color: #888899; }
+.light .list-item { border-bottom-color: #e0e0ea; }
+.light .empty { color: #aaaacc; }
+.light .btn-cancel { background: #e8e8f0; color: #555566; border-color: #dcdcea; }
+.light .username { color: #1a1a2e; }

@@ -1,0 +1,61 @@
+<view class="container {{darkMode ? 'dark' : 'light'}}">
+
+<!-- 加载中 -->
+<view class="loading" wx:if="{{loading}}">
+  <text class="loading-text">加载中...</text>
+</view>
+
+<block wx:elif="{{post}}">
+  <!-- 文章头部 -->
+  <view class="post-header">
+    <view class="post-meta">
+      <text class="post-category">{{post.category}}</text>
+      <text class="post-date">{{post.date}}</text>
+    </view>
+    <text class="post-title">{{post.title}}</text>
+  </view>
+
+  <!-- 封面图 -->
+  <image wx:if="{{post.cover}}" class="post-cover" src="{{post.cover}}" mode="aspectFill"/>
+
+  <!-- 正文 -->
+  <view class="post-body">
+    <rich-text class="post-content" nodes="{{post.html}}"/>
+  </view>
+
+  <!-- 评论区 -->
+  <view class="comments-section">
+    <text class="section-title">评论 ({{comments.length}})</text>
+
+    <!-- 评论列表 -->
+    <view class="comment-card" wx:for="{{comments}}" wx:key="id">
+      <view class="comment-header">
+        <text class="comment-author">{{item.author}}</text>
+        <text class="comment-date">{{item.date}}</text>
+      </view>
+      <text class="comment-content">{{item.content}}</text>
+    </view>
+
+    <view class="empty-comment" wx:if="{{comments.length === 0}}">
+      <text class="empty-text">还没有评论，来说点什么吧～</text>
+    </view>
+
+    <!-- 发表评论 -->
+    <view class="comment-input-wrap">
+      <textarea
+        class="comment-input"
+        placeholder="写下你的评论..."
+        placeholder-class="comment-placeholder"
+        value="{{commentContent}}"
+        bindinput="onCommentInput"
+        maxlength="500"
+        auto-height
+      />
+      <button class="comment-submit" bindtap="submitComment" loading="{{commenting}}">
+        发表
+      </button>
+    </view>
+  </view>
+</block>
+
+</view>

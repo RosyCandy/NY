@@ -1,0 +1,119 @@
+<view class="content-wrap">
+<view class="container {{darkMode ? 'dark' : 'light'}}">
+
+<!-- 右上角菜单按钮 -->
+<view class="menu-btn" bindtap="toggleMenu">
+  <view class="menu-line"></view>
+  <view class="menu-line"></view>
+  <view class="menu-line"></view>
+</view>
+
+<!-- 侧滑菜单遮罩 -->
+<view class="menu-mask {{menuOpen ? 'show' : ''}}" bindtap="toggleMenu"></view>
+
+<!-- 侧滑菜单 -->
+<view class="menu-panel {{menuOpen ? 'show' : ''}}">
+  <view class="menu-item" bindtap="goCategory" data-cat="life">生活</view>
+  <view class="menu-item" bindtap="goCategory" data-cat="tech">技术</view>
+  <view class="menu-item" bindtap="goCategory" data-cat="music">音乐</view>
+  <view class="menu-item" bindtap="goCategory" data-cat="essay">随笔</view>
+  <view class="menu-divider"></view>
+  <view class="menu-item" bindtap="goAI">AI 对话</view>
+</view>
+
+<!-- 头像+简介卡片 -->
+<view class="card profile-card">
+  <image class="avatar" src="{{profile.avatar}}" mode="aspectFill"></image>
+  <view class="profile-info">
+    <text class="profile-name">{{profile.name}}</text>
+    <text class="profile-bio">{{profile.bio}}</text>
+    <view class="profile-stats">
+      <view class="stat">
+        <text class="stat-num">{{profile.postCount}}</text>
+        <text class="stat-label">文章</text>
+      </view>
+      <view class="stat-divider"></view>
+      <view class="stat">
+        <text class="stat-num">{{profile.commentCount}}</text>
+        <text class="stat-label">评论</text>
+      </view>
+    </view>
+  </view>
+  <!-- 主题切换按钮 -->
+  <view class="theme-btn" bindtap="toggleTheme">
+    <text class="theme-icon">{{darkMode ? '☀️' : '🌙'}}</text>
+  </view>
+</view>
+
+<!-- 天气卡片 -->
+<view class="card weather-card">
+  <view class="weather-left">
+    <text class="weather-icon">{{weather.icon}}</text>
+    <text class="weather-temp">{{weather.temp}}°</text>
+    <text class="weather-desc">{{weather.desc}}</text>
+    <text class="weather-city">{{weather.city}}</text>
+  </view>
+  <view class="weather-right">
+    <text class="weather-day">{{weather.day}}</text>
+    <text class="weather-weekday">{{weather.weekday}}</text>
+    <text class="weather-date">{{weather.date}}</text>
+  </view>
+</view>
+
+<!-- 音乐预览卡片 -->
+<view class="card music-card" wx:if="{{music}}">
+  <view class="music-card-header">
+    <text class="music-card-icon">🎵</text>
+    <text class="music-card-label">音乐</text>
+  </view>
+  <view class="music-info">
+    <view class="music-cover">
+      <text class="music-note">♪</text>
+    </view>
+    <view class="music-detail">
+      <text class="music-name">{{music.name}}</text>
+      <text class="music-artist">{{music.artist}}</text>
+    </view>
+  </view>
+  <view class="music-goto" bindtap="goMusic">
+    <text class="music-goto-text">打开音乐页 →</text>
+  </view>
+</view>
+
+<!-- 最新文章 -->
+<view class="section-header">
+  <text class="section-title">最新文章</text>
+  <scroll-view class="cat-tabs" scroll-x>
+    <view class="cat-tab {{activeCat === '' ? 'active' : ''}}" bindtap="filterCat" data-cat="">全部</view>
+    <view class="cat-tab {{activeCat === 'life' ? 'active' : ''}}" bindtap="filterCat" data-cat="life">生活</view>
+    <view class="cat-tab {{activeCat === 'tech' ? 'active' : ''}}" bindtap="filterCat" data-cat="tech">技术</view>
+    <view class="cat-tab {{activeCat === 'music' ? 'active' : ''}}" bindtap="filterCat" data-cat="music">音乐</view>
+    <view class="cat-tab {{activeCat === 'essay' ? 'active' : ''}}" bindtap="filterCat" data-cat="essay">随笔</view>
+  </scroll-view>
+</view>
+
+<view class="card post-card" wx:for="{{posts}}" wx:key="id" data-id="{{item.id}}">
+  <view class="post-meta">
+    <text class="post-category">{{item.category}}</text>
+    <text class="post-date">{{item.date}}</text>
+  </view>
+  <text class="post-title">{{item.title}}</text>
+  <text class="post-excerpt">{{item.excerpt}}</text>
+  <view class="post-read-more" bindtap="goToPost" data-id="{{item.id}}">
+    <text class="post-read-more-text">阅读全文 →</text>
+  </view>
+</view>
+
+<!-- 最新评论 -->
+<view class="section-title" style="margin-top:8rpx">最新评论</view>
+<view class="card comment-card" wx:for="{{comments}}" wx:key="id">
+  <view class="comment-header">
+    <text class="comment-author">{{item.author}}</text>
+    <text class="comment-date">{{item.date}}</text>
+  </view>
+  <text class="comment-content">{{item.content}}</text>
+  <text class="comment-post">→ {{item.postTitle}}</text>
+</view>
+
+</view>
+</view>

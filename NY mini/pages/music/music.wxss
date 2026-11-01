@@ -1,0 +1,182 @@
+page { background: #0d0d1a; color: #fff; }
+
+.container { padding: 0 0 120rpx;
+             width: 100%;
+             box-sizing: border-box;
+             min-height: 100vh;
+             overflow-x: hidden;          
+}
+
+/* 播放器区域 */
+.player {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60rpx 32rpx 40rpx;
+  box-sizing: border-box;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.disc-wrap {
+  width: 280rpx;
+  height: 280rpx;
+  margin-bottom: 48rpx;
+}
+
+.disc {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 8rpx solid #2a2a40;
+  box-shadow: 0 0 40rpx #7c6bff44;
+}
+
+.disc.spinning {
+  animation: spin 8s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.disc-img { width: 100%; height: 100%; }
+
+.song-info {
+  text-align: center;
+  margin-bottom: 40rpx;
+}
+
+.song-name {
+  display: block;
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-bottom: 12rpx;
+}
+
+.song-artist {
+  display: block;
+  font-size: 26rpx;
+  color: #888;
+}
+
+/* 进度条 */
+.progress-wrap {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  gap: 16rpx;
+  margin-bottom: 48rpx;
+  padding: 0 8rpx;
+}
+
+.time {
+  font-size: 22rpx;
+  color: #666;
+  flex-shrink: 0;
+}
+
+.progress-bar {
+  flex: 1;
+  height: 6rpx;
+  background: #2a2a40;
+  border-radius: 6rpx;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #7c6bff;
+  border-radius: 6rpx;
+  transition: width 0.5s linear;
+}
+
+/* 控制按钮 */
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 64rpx;
+}
+
+.ctrl-btn {
+  font-size: 48rpx;
+  color: #ccc;
+  padding: 16rpx;
+}
+
+.play-btn {
+  width: 100rpx;
+  height: 100rpx;
+  background: #7c6bff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 44rpx;
+  color: #fff;
+  box-shadow: 0 4rpx 20rpx #7c6bff66;
+}
+
+/* 播放列表 */
+.playlist {
+  margin: 0 30rpx;
+  background: #1a1a2e;
+  border-radius: 24rpx;
+  padding: 32rpx;
+}
+
+.playlist-title {
+  display: block;
+  font-size: 30rpx;
+  font-weight: bold;
+  margin-bottom: 24rpx;
+}
+
+.playlist-item {
+  display: flex;
+  align-items: center;
+  padding: 24rpx 0;
+  border-bottom: 1rpx solid #2a2a40;
+}
+
+.playlist-item:last-child { border-bottom: none; }
+
+.playlist-item.active .playlist-name { color: #7c6bff; }
+
+.playlist-info { flex: 1; }
+
+.playlist-name {
+  display: block;
+  font-size: 28rpx;
+  color: #eee;
+  margin-bottom: 8rpx;
+}
+
+.playlist-artist {
+  display: block;
+  font-size: 22rpx;
+  color: #666;
+}
+
+.playing-icon {
+  color: #7c6bff;
+  font-size: 32rpx;
+}
+
+/* 浅色模式 */
+.light { background: #f0f0f5; }
+.light .player { background: #f0f0f5; }
+.light .song-name { color: #1a1a2e; }
+.light .song-artist { color: #888899; }
+.light .time { color: #aaaacc; }
+.light .progress-bar { background: #dcdcea; }
+.light .ctrl-btn { color: #555566; }
+.light .disc { border-color: #dcdcea; }
+.light .playlist { background: #ffffff; border: 1px solid #e0e0ea; }
+.light .playlist-title { color: #1a1a2e; }
+.light .playlist-name { color: #1a1a2e; }
+.light .playlist-artist { color: #888899; }
+.light .playlist-item { border-bottom-color: #e0e0ea; }

@@ -1,0 +1,37 @@
+<view class="login-page">
+  <view class="logo-wrap">
+    <text class="logo-text">DuoDuo</text>
+    <text class="logo-sub">管理员登录</text>
+  </view>
+
+  <view class="form-wrap">
+    <view class="input-group">
+      <text class="input-label">用户名</text>
+      <input
+        class="input-field"
+        type="text"
+        placeholder="请输入用户名"
+        placeholder-class="input-placeholder"
+        value="{{username}}"
+        bindinput="onUsernameInput"
+      />
+    </view>
+    <view class="input-group">
+      <text class="input-label">密码</text>
+      <input
+        class="input-field"
+        type="password"
+        placeholder="请输入密码"
+        placeholder-class="input-placeholder"
+        value="{{password}}"
+        bindinput="onPasswordInput"
+      />
+    </view>
+
+    <view class="error-msg" wx:if="{{errorMsg}}">{{errorMsg}}</view>
+
+    <button class="submit-btn" bindtap="doLogin" loading="{{loading}}">
+      登录
+    </button>
+  </view>
+</view>

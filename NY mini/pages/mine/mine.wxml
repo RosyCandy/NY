@@ -1,0 +1,104 @@
+<view class="container {{darkMode ? 'dark' : 'light'}}">
+
+<!-- 未登录状态 -->
+<view wx:if="{{!isLoggedIn}}" class="not-login">
+  <text class="logo">DuoDuo</text>
+  <text class="sub">管理员专属</text>
+  <button class="btn-login" bindtap="goLogin">登录</button>
+</view>
+
+<!-- 已登录状态 -->
+<view wx:else style="width:100%">
+
+  <!-- 顶部用户信息 -->
+  <view class="header">
+    <view class="avatar-wrap">
+      <image class="avatar" src="https://duoduo.best/assets/images/avatar.jpeg" mode="aspectFill"/>
+    </view>
+    <view class="user-info">
+      <text class="username">{{userInfo.username}}</text>
+      <text class="role">管理员</text>
+    </view>
+    <button class="btn-logout" bindtap="logout">退出</button>
+  </view>
+
+  <!-- Tab 切换 -->
+  <view class="tabs">
+    <view class="tab {{activeTab==='post'?'active':''}}" bindtap="switchTab" data-tab="post">📝 文章</view>
+    <view class="tab {{activeTab==='music'?'active':''}}" bindtap="switchTab" data-tab="music">🎵 音乐</view>
+  </view>
+
+  <!-- ───── 文章 Tab ───── -->
+  <view wx:if="{{activeTab==='post'}}">
+
+    <!-- 发布/编辑文章 -->
+    <view class="card">
+      <text class="card-title">{{editingPost ? '✏️ 编辑文章' : '✍️ 写新文章'}}</text>
+      <input class="input" placeholder="文章标题" value="{{newTitle}}"
+             bindinput="e => setData({newTitle: e.detail.value})"/>
+      <picker class="picker" mode="selector" range="{{['生活','随笔','技术']}}"
+              bindchange="e => setData({newCategory: ['生活','随笔','技术'][e.detail.value]})">
+        <view class="picker-view">分类：{{newCategory}} ▾</view>
+      </picker>
+      <input class="input" placeholder="封面图片URL（可选）" value="{{newCover}}"
+             bindinput="e => setData({newCover: e.detail.value})"/>
+      <textarea class="textarea" placeholder="写点什么..." value="{{newContent}}"
+                bindinput="e => setData({newContent: e.detail.value})"/>
+      <view class="form-btns">
+        <button class="btn-cancel" wx:if="{{editingPost}}" bindtap="cancelEdit">取消</button>
+        <button class="btn-primary" bindtap="savePost">
+          {{editingPost ? '保存修改' : '发布文章'}}
+        </button>
+      </view>
+    </view>
+
+    <!-- 文章列表 -->
+    <view class="card">
+      <text class="card-title">📋 文章管理</text>
+      <view wx:if="{{posts.length===0}}" class="empty">暂无文章</view>
+      <view class="list-item" wx:for="{{posts}}" wx:key="id">
+        <view class="item-info">
+          <text class="item-title">{{item.title}}</text>
+          <text class="item-meta">{{item.category}} · {{item.created_at.substring(0,10)}}</text>
+        </view>
+        <view class="btn-group">
+          <button class="btn-edit" bindtap="editPost" data-id="{{item.id}}">编辑</button>
+          <button class="btn-delete" bindtap="deletePost" data-id="{{item.id}}">删除</button>
+        </view>
+      </view>
+    </view>
+
+  </view>
+
+  <!-- ───── 音乐 Tab ───── -->
+  <view wx:if="{{activeTab==='music'}}">
+
+    <!-- 添加音乐 -->
+    <view class="card">
+      <text class="card-title">🎵 添加音乐</text>
+      <input class="input" placeholder="歌曲名称" value="{{newMusicName}}"
+             bindinput="e => setData({newMusicName: e.detail.value})"/>
+      <input class="input" placeholder="歌手（可选）" value="{{newMusicArtist}}"
+             bindinput="e => setData({newMusicArtist: e.detail.value})"/>
+      <input class="input" placeholder="文件路径，如 music/xxx.flac" value="{{newMusicPath}}"
+             bindinput="e => setData({newMusicPath: e.detail.value})"/>
+      <button class="btn-primary" bindtap="addMusic">添加音乐</button>
+    </view>
+
+    <!-- 音乐列表 -->
+    <view class="card">
+      <text class="card-title">🎧 音乐列表</text>
+      <view wx:if="{{musicList.length===0}}" class="empty">暂无音乐</view>
+      <view class="list-item" wx:for="{{musicList}}" wx:key="id">
+        <view class="item-info">
+          <text class="item-title">{{item.name}}</text>
+          <text class="item-meta">{{item.artist || '未知歌手'}}</text>
+        </view>
+        <button class="btn-delete" bindtap="deleteMusic" data-id="{{item.id}}">删除</button>
+      </view>
+    </view>
+
+  </view>
+
+</view>
+</view>
